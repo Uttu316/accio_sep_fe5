@@ -28,6 +28,21 @@ const getPosts = (userId, onSuccess, onFailure) => {
   console.log("Processing Posts");
 };
 
+const getComments = (postId, onSuccess, onFailure) => {
+  console.log("Fetching Comments", postId);
+  setTimeout(() => {
+    if (postId) {
+      onSuccess({
+        comment: "Hello",
+        commentId: "32321",
+      });
+    } else {
+      onFailure("No comment");
+    }
+  }, 2000);
+  console.log("Comment in process");
+};
+
 getUserData(
   "abc",
   (user) => {
@@ -36,6 +51,15 @@ getUserData(
       user.userId,
       (post) => {
         console.log("Post Data", post);
+        getComments(
+          post.postId,
+          (comments) => {
+            console.log("Comments", comments);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       },
       (error) => {
         console.log("Post Error", error);
