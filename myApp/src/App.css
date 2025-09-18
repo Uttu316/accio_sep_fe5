@@ -1,0 +1,12 @@
+.heading {
+  color: red;
+}
+
+.course_list {
+  border: 2px solid brown;
+  margin: 20px;
+}
+
+#syllabus_heading {
+  color: green;
+}
