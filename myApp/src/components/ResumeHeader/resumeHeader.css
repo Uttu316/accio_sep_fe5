@@ -1,0 +1,14 @@
+/* Header section */
+.resume_header {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.resume_header_heading {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin: 0;
+}
