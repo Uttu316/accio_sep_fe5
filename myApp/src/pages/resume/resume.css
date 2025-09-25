@@ -1,0 +1,250 @@
+/* Main resume page container */
+.resume_page {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+/* Horizontal rules */
+.resume_page hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #2c3e50);
+  margin: 0;
+}
+
+/* Container sections */
+.resume_container {
+  padding: 2rem;
+  margin: 0;
+}
+
+/* Intro section */
+.resume_intro_container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  padding: 3rem 2rem;
+}
+
+.resume_name_intro {
+  flex: 2;
+}
+
+.resume_name_intro h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.resume_name_intro p {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.resume_name_intro p:first-of-type {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #3498db;
+  margin-bottom: 1.5rem;
+}
+
+/* Image and contact section */
+.resume_intro_img {
+  flex: 1;
+  text-align: center;
+  min-width: 250px;
+}
+
+.resume_intro_img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid #3498db;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.resume_intro_img a {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.resume_intro_img a:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+}
+
+/* Skills section */
+.resume_skills_container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin: 2rem;
+  padding: 2.5rem;
+}
+
+.resume_skills_container h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.resume_skills_container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resume_skills_container li {
+  background-color: #3498db;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.resume_skills_container li:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.resume_skills_container h2:last-of-type {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.resume_skills_container p {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume_header_heading {
+    font-size: 2rem;
+  }
+
+  .resume_intro_container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .resume_name_intro h2 {
+    font-size: 2rem;
+  }
+
+  .resume_intro_img {
+    min-width: auto;
+  }
+
+  .resume_intro_img img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .resume_container {
+    padding: 1.5rem 1rem;
+  }
+
+  .resume_skills_container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .resume_skills_container ul {
+    justify-content: center;
+  }
+
+  .resume_skills_container h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume_header {
+    padding: 1.5rem 0;
+  }
+
+  .resume_header_heading {
+    font-size: 1.8rem;
+  }
+
+  .resume_name_intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .resume_name_intro p {
+    font-size: 1rem;
+  }
+
+  .resume_intro_img img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .resume_intro_img a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .resume_skills_container {
+    padding: 1rem;
+  }
+
+  .resume_skills_container h2 {
+    font-size: 1.3rem;
+  }
+
+  .resume_skills_container li {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Print styles for professional resume printing */
+@media print {
+  .resume_page {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .resume_header {
+    background: #2c3e50 !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume_intro_img a {
+    color: #2c3e50 !important;
+    background: none !important;
+    text-decoration: underline;
+  }
+
+  .resume_skills_container li {
+    background: #e9ecef !important;
+    color: #2c3e50 !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
