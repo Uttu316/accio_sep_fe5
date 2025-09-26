@@ -1,112 +1,52 @@
 import { useState } from "react";
-import { GiTakeMyMoney as Icon } from "react-icons/gi";
-import { MdDelete as DltIcon, MdModeEdit as EditIcon } from "react-icons/md";
-import "./expenseTracker.css";
+import styles from "./expenseTracker.module.css";
+import ExpenseTrackerList from "./exprenseTrackerList";
+import ExpenseTrackerInputs from "./expenseInputs";
 
 const ExpenseTracker = () => {
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
+  const [expenses, setExpenses] = useState([]); // list to store expenses
+  const [editExpense, setEditExpense] = useState(null); // to store editing expense object
+  const [amount, setAmount] = useState(""); // expense amount
+  const [category, setCategory] = useState(""); // expense category
 
-  const [expenses, setExpenses] = useState([]);
-
-  const onAmountChange = (e) => {
-    const currAmount = e.target.value;
-    var enteredAmount = currAmount;
-
-    if (currAmount !== "") {
-      enteredAmount = Number(currAmount);
-      if (isNaN(enteredAmount)) return;
-      if (enteredAmount <= 0) return;
-    }
-
-    setAmount(enteredAmount);
+  const onEdit = (item, index) => {
+    item.index = index;
+    setEditExpense(item);
+    setAmount(item.amount);
+    setCategory(item.category);
   };
-
-  const onCategoryChange = (e) => {
-    const selectedCategory = e.target.value;
-    setCategory(selectedCategory);
-  };
-
-  const onAdd = () => {
-    if (!amount || !category) return;
-    const currExpense = {
+  const onSave = () => {
+    const updatedExpense = {
+      ...editExpense,
       amount,
       category,
-      time: Date.now(),
-      id: parseInt(Math.random() * 100000),
     };
 
-    setExpenses((currExpenses) => [currExpense, ...currExpenses]);
-    setAmount("");
-    setCategory("");
+    setExpenses((currExpenses) => {
+      currExpenses[editExpense.index] = updatedExpense;
+      return currExpenses;
+    });
+    setAmount(""); //reset amount after save
+    setCategory(""); //reset category after save
+    setEditExpense(null); //reset edit after save
   };
-
-  const onDelete = (id) => {
-    setExpenses((currExpenses) => currExpenses.filter((i) => i.id !== id));
-  };
-  const hasExpenses = expenses.length !== 0;
   return (
-    <div className="expense_tracker_container">
-      <div className="expense_tracker_input_box">
-        <input
-          type="number"
-          onChange={onAmountChange}
-          placeholder="Enter Amount"
-          className="expense_tracker_input"
-          min={1}
-          value={amount}
-        />
-        <select
-          value={category}
-          onChange={onCategoryChange}
-          className="expense_tracker_categories"
-        >
-          <option value={""} disabled>
-            Select Category
-          </option>
-          <option value={"clothes"}>Clothes</option>
-          <option value={"food"}>Food</option>
-          <option value={"rent"}>Rent</option>
-          <option value={"emi"}>EMI</option>
-          <option value={"bills"}>Bills</option>
-          <option value={"travel"}>Travel</option>
-          <option value={"others"}>Others</option>
-        </select>
-        <button onClick={onAdd}>
-          Add Expense <Icon />
-        </button>
-      </div>
-      <div className="expense_tracker_list">
-        {!hasExpenses && (
-          <h3 className="expense_tracker_empty">No Expense yet</h3>
-        )}
-        {hasExpenses &&
-          expenses.map((item) => (
-            <div className="expense_tracker_list_item">
-              <div className="expense_tracker_item_details">
-                <p className="expense_tracker_item_amount">{item.amount}</p>
-                <p className="expense_tracker_item_category">{item.category}</p>
-              </div>
-              <div className="expense_tracker_item_right">
-                <p className="expense_tracker_item_time">
-                  {new Date(item.time).toLocaleDateString()}{" "}
-                  {new Date(item.time).toLocaleTimeString()}
-                </p>
-                <div className="expense_tracker_item_actions">
-                  <button
-                    onClick={() => onDelete(item.id)}
-                    className="expense_tracker_item_btn dlt_btn"
-                  >
-                    <DltIcon />
-                  </button>
-                  <button className="expense_tracker_item_btn edit_btn">
-                    <EditIcon />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-      </div>
+    <div className={styles.expense_tracker_container}>
+      <ExpenseTrackerInputs
+        editExpense={editExpense}
+        setExpenses={setExpenses}
+        setAmount={setAmount}
+        amount={amount}
+        setCategory={setCategory}
+        category={category}
+        onSave={onSave}
+      />
+      <ExpenseTrackerList
+        onEdit={onEdit}
+        expenses={expenses}
+        setExpenses={setExpenses}
+        editExpense={editExpense}
+      />
     </div>
   );
 };

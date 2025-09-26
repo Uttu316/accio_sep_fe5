@@ -100,6 +100,9 @@
   transition: all 0.3s ease;
   gap: 10px;
 }
+.isEditItem {
+  background: rgb(190, 201, 212);
+}
 
 .expense_tracker_list_item:hover {
   transform: translateY(-2px);
@@ -174,6 +177,9 @@
 
 .edit_btn:hover {
   background: #fff3cd;
+}
+.expense_tracker_item_btn:disabled {
+  color: gray;
 }
 
 /* Responsive Design */

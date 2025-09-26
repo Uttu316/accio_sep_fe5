@@ -1,6 +1,7 @@
 import PracticePage from "./pages/practice";
 import ResumePage from "./pages/resume";
 import reactIcon from "./assets/react.svg";
+import "./App.css";
 const App = () => {
   return (
     <div>
