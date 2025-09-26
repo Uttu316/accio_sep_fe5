@@ -1,0 +1,198 @@
+/* Expense Tracker Container */
+.expense_tracker_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  margin: 40px;
+  border-radius: 20px;
+}
+
+/* Input Box */
+.expense_tracker_input_box {
+  background: #dc3545;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.expense_tracker_input,
+.expense_tracker_categories {
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.expense_tracker_input:focus,
+.expense_tracker_categories:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.expense_tracker_input::placeholder {
+  color: #adb5bd;
+}
+
+.expense_tracker_categories {
+  cursor: pointer;
+}
+
+.expense_tracker_input_box button {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  align-self: flex-start;
+}
+
+.expense_tracker_input_box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.expense_tracker_input_box button:active {
+  transform: translateY(0);
+}
+
+/* Expense List */
+.expense_tracker_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.expense_tracker_empty {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 50px 0;
+}
+
+/* Expense List Item */
+.expense_tracker_list_item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+
+.expense_tracker_list_item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Item Details */
+.expense_tracker_item_details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.expense_tracker_item_amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.expense_tracker_item_category {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: capitalize;
+  background: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+/* Item Right */
+.expense_tracker_item_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.expense_tracker_item_time {
+  font-size: 0.8rem;
+  color: #adb5bd;
+}
+
+/* Item Actions */
+.expense_tracker_item_actions {
+  display: flex;
+  gap: 10px;
+}
+
+.expense_tracker_item_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dlt_btn {
+  color: #dc3545;
+}
+
+.dlt_btn:hover {
+  background: #f8d7da;
+}
+
+.edit_btn {
+  color: #ffc107;
+}
+
+.edit_btn:hover {
+  background: #fff3cd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expense_tracker_container {
+    padding: 10px;
+  }
+
+  .expense_tracker_input_box {
+    padding: 20px;
+  }
+
+  .expense_tracker_list_item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .expense_tracker_item_right {
+    align-items: flex-start;
+  }
+}
