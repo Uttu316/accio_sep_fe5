@@ -1,7 +1,7 @@
-# TODO: Style Practice Page and Counter Component
+# TODO: Style Products Page and Subcomponents
 
-## Steps:
+## Tasks
 
-- [x] Update Counter component to implement limit logic: Show "Limit Reached" if count > 10, "Not Allowed" if count < 0.
-- [x] Add professional CSS styles to practice.css for the practice page (centering, clean background) and Counter component (card design with shadows, rounded corners, modern buttons and fonts).
-- [ ] Verify the implementation by running the app and checking the styling and functionality.
+- [x] Update ProductCard.jsx to include description (2 lines), rating, price, and "Add to cart" button
+- [x] Add CSS styles in productsContainer.module.css for product card layout, spacing, and appearance
+- [ ] Test the styling by running the app and checking the products page

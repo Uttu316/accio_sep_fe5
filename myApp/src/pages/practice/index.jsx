@@ -1,4 +1,5 @@
 import Counter from "../../components/Counter";
+import EffectHooK from "../../components/effectHook";
 import ExpenseTracker from "../../components/ExenseTracker";
 import "./practice.css";
 const PracticePage = () => {
@@ -6,6 +7,7 @@ const PracticePage = () => {
     <div className="practice_page">
       <Counter />
       <ExpenseTracker />
+      <EffectHooK />
     </div>
   );
 };
