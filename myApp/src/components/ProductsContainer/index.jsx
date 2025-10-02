@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./productsContainer.module.css";
 import { api } from "../../services";
 import ProductList from "./productList";
@@ -7,7 +7,7 @@ const ProductsContainer = () => {
   const [status, setStatus] = useState("loading");
   const [products, setproducts] = useState([]);
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async () => {
     try {
       const data = await api({
         endpoint: "/products",
@@ -17,7 +17,7 @@ const ProductsContainer = () => {
     } catch (e) {
       setStatus("error");
     }
-  };
+  }, []);
 
   useEffect(() => {
     getProducts();

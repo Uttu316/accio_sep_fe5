@@ -1,15 +1,27 @@
 import styles from "./productsContainer.module.css";
 import ProductCard from "./productCard";
 import ProductsFilter from "./ProdcutsFilter";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 const ProductList = ({ products }) => {
   const [category, selectCategory] = useState("all");
 
+  const [count, setCount] = useState(0);
+
+  console.log("Product List Render");
+
+  const productsToShow = useMemo(() => {
+    console.log("Filter Calculation");
+    return category !== "all"
+      ? products.filter((item) => item.category === category)
+      : products;
+  }, [category, products]);
+
   return (
     <div>
-      <ProductsFilter selectCategory={selectCategory} />
+      <button onClick={() => setCount(count + 1)}>Update Count{count}</button>
+      <ProductsFilter category={category} selectCategory={selectCategory} />
       <div className={styles.productsListBox}>
-        {products.map((item) => (
+        {productsToShow.map((item) => (
           <ProductCard product={item} key={item.id} />
         ))}
       </div>

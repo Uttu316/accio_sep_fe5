@@ -1,21 +1,32 @@
+import { Link, NavLink } from "react-router";
 import styles from "./productheader.module.css";
 
 const ProductHeader = () => {
   return (
     <header className={styles.productHeader}>
-      <h1 className={styles.logo}>Logo</h1>
+      <h1 className={styles.logo}>
+        <Link to="/">Logo</Link>
+      </h1>
       <nav className={styles.navbar}>
-        <a href="/about" className={styles.navitem}>
-          About
-        </a>
-        <a href="/contact" className={styles.navitem}>
-          Contact Us
-        </a>
-        <a href="/cart" className={styles.navitem}>
-          Cart
-        </a>
+        <NavItem path={"/products"} label={"Prodcuts"} />
+        <NavItem path="/cart" label={"Cart"} />
+        <NavItem path={"/about"} label={"About"} />
+        <NavItem path="/contact" label={"Contact Us"} />
       </nav>
     </header>
+  );
+};
+
+const NavItem = ({ path, label }) => {
+  return (
+    <NavLink
+      to={path}
+      className={({ isActive }) =>
+        `${styles.navitem} ${isActive ? styles.navActive : ""}`
+      }
+    >
+      {label}
+    </NavLink>
   );
 };
 export default ProductHeader;

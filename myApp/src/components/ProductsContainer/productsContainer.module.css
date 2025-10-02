@@ -94,3 +94,42 @@
   text-align: center;
   color: #666;
 }
+
+.productsFilter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productsFilter span {
+  font-weight: bold;
+  color: #333;
+}
+
+.filterItem {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.filterItem:hover {
+  background-color: #2980b9;
+}
+
+.filterItem:active {
+  background-color: teal;
+}
+
+.selectedFilter {
+  background-color: teal;
+}
