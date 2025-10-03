@@ -1,11 +1,11 @@
+import PageWrapper from "../../components/PageWrapper";
 import ProductHeader from "../../components/ProductHeader";
 
 const HomePage = () => {
   return (
-    <div>
-      <ProductHeader />
+    <PageWrapper>
       <h1>Home Page</h1>
-    </div>
+    </PageWrapper>
   );
 };
 export default HomePage;

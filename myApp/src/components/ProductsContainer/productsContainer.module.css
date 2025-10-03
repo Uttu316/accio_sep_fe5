@@ -133,3 +133,20 @@
 .selectedFilter {
   background-color: teal;
 }
+
+.removeFromCartButton {
+  background-color: salmon;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 12px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.removeFromCartButton:hover {
+  background-color: rgb(249, 113, 98);
+}

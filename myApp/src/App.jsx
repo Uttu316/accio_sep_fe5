@@ -8,22 +8,28 @@ import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import ProductPage from "./pages/ProdcutPage";
 import NotFoundPage from "./pages/notFound";
+import { useState } from "react";
+import CartProvider from "./contexts/cartContentx";
+import CartPage from "./pages/cart";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/practice" element={<PracticePage />} />
-        <Route path="/resume" element={<ResumePage />} />
-        <Route path="/notfound" element={<NotFoundPage />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/practice" element={<PracticePage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/notfound" element={<NotFoundPage />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 };
 

@@ -1,10 +1,10 @@
+import PageWrapper from "../../components/PageWrapper";
 import ProductHeader from "../../components/ProductHeader";
 import styles from "./contact.module.css";
 
 const ContactPage = () => {
   return (
-    <div className={styles.contactPage}>
-      <ProductHeader />
+    <PageWrapper className={styles.contactPage}>
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
           <div className={styles.heroText}>
@@ -81,7 +81,7 @@ const ContactPage = () => {
           </div>
         </section>
       </main>
-    </div>
+    </PageWrapper>
   );
 };
 

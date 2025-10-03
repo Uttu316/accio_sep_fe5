@@ -1,10 +1,10 @@
+import PageWrapper from "../../components/PageWrapper";
 import ProductHeader from "../../components/ProductHeader";
 import styles from "./about.module.css";
 
 const AboutPage = () => {
   return (
-    <div className={styles.aboutPage}>
-      <ProductHeader />
+    <PageWrapper className={styles.aboutPage}>
       <main className={styles.mainContent}>
         <section className={styles.heroSection}>
           <div className={styles.heroText}>
@@ -51,7 +51,7 @@ const AboutPage = () => {
           </div>
         </section>
       </main>
-    </div>
+    </PageWrapper>
   );
 };
 

@@ -1,13 +1,13 @@
+import PageWrapper from "../../components/PageWrapper";
 import ProductsHeader from "../../components/ProductHeader";
 import ProductsContainer from "../../components/ProductsContainer";
 import styles from "./products.module.css";
 
 const ProductsPage = () => {
   return (
-    <div className={styles.productPage}>
-      <ProductsHeader />
+    <PageWrapper className={styles.productPage}>
       <ProductsContainer />
-    </div>
+    </PageWrapper>
   );
 };
 export default ProductsPage;
