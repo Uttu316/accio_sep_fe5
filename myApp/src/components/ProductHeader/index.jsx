@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router";
-import styles from "./productheader.module.css";
+import styles from "./productHeader.module.css";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cartContentx";
 
